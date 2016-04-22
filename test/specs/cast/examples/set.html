@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Getter tests</title>
+</head>
+<body>
+<input id="text-1" value="value-1"/>
+<input id="text-2" value="value-2"/>
+<input id="text-different-than-set" />
+
+<div id="checkboxes">
+    <input id="checkbox-1" type="checkbox" />
+    <input id="checkbox-2" type="checkbox" checked="checked"/>
+</div>
+
+<script>
+    function setter() {
+        //document.getElementById("text-different-than-set").unbind('change', setter);
+        document.getElementById("text-different-than-set").value = "another value";
+    }
+
+    document.getElementById("text-different-than-set").change(setter);
+</script>
+</body>
+</html>

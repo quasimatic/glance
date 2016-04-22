@@ -1,8 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 function tagElementWithID(elements, ids) {
     for (var i = 0; i < elements.length; ++i) {
         elements[i].setAttribute("data-glance-id", ids[i]);
@@ -10,7 +5,7 @@ function tagElementWithID(elements, ids) {
 }
 
 function waitForChange(element, name) {
-    return element.getAttribute(name);
+    return element.getAttribute(name)
 }
 
 function GlanceSelector(selector, customLabels, multiple, logLevel) {
@@ -31,11 +26,9 @@ function addModifiersToBrowser(modifierString) {
             var match = value.match(startOfFunc);
 
             if (match) {
-                var args = match[1].split(',').map(function (arg) {
-                    return arg.replace(/\s+/, '');
-                });
-                return new Function(args, value.replace(startOfFunc, '').replace(/\}$/, ''));
-            }
+                 var args = match[1].split(',').map(function(arg) { return arg.replace(/\s+/, ''); });
+                 return new Function(args, value.replace(startOfFunc, '').replace(/\}$/, ''));
+             }
         }
 
         return value;
@@ -47,14 +40,14 @@ function addModifiersToBrowser(modifierString) {
 
 function serializeModifiers(modifiers) {
     function functionReplacer(key, value) {
-        if (typeof value === 'function') {
+        if (typeof(value) === 'function') {
             return value.toString();
         }
         return value;
     }
 
-    var browserSideModifiers = Object.keys(modifiers).reduce(function (o, k) {
-        if (modifiers[k].browser) {
+    var browserSideModifiers = Object.keys(modifiers).reduce((o, k) => {
+        if(modifiers[k].browser) {
             o[k] = modifiers[k];
         }
         return o;
@@ -72,7 +65,7 @@ function getTextFromClient(element) {
 }
 
 function getUrlFromClient() {
-    return document.location.href;
+    return document.location.href
 }
 
 function getHTMLFromClient(element) {
@@ -86,15 +79,17 @@ function getSelectTextFromClient(select) {
     return select.options[i].text;
 }
 
-exports.addModifiersToBrowser = addModifiersToBrowser;
-exports.serializeModifiers = serializeModifiers;
-exports.getAttributeFromClient = getAttributeFromClient;
-exports.getTagNameFromClient = getTagNameFromClient;
-exports.getTextFromClient = getTextFromClient;
-exports.getUrlFromClient = getUrlFromClient;
-exports.getHTMLFromClient = getHTMLFromClient;
-exports.getSelectTextFromClient = getSelectTextFromClient;
-exports.waitForChange = waitForChange;
-exports.tagElementWithID = tagElementWithID;
-exports.GlanceSelector = GlanceSelector;
-exports.default = GlanceSelector;
+export {addModifiersToBrowser}
+export {serializeModifiers}
+export {getAttributeFromClient};
+export {getTagNameFromClient};
+export {getTextFromClient};
+export {getUrlFromClient};
+export {getHTMLFromClient};
+export {getSelectTextFromClient};
+
+export {waitForChange};
+export {tagElementWithID};
+export {GlanceSelector};
+
+export default GlanceSelector

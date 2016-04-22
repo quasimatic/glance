@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Wait for change</title>
+</head>
+<body>
+<div id="watch-1">
+    <div id="text-1">parent not changed</div>
+</div>
+<script>
+    setTimeout(function(){
+        document.getElementById("watch-1").outerHTML = '<div id="watch-1"><div id="text-1">parent has changed</div> </div>';
+    }, 500)
+</script>
+</body>
+</html>

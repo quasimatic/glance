@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Watch for change</title>
+</head>
+<body>
+<div id="text-1">not changed</div>
+<script>
+    setTimeout(function(){
+        document.getElementById("text-1").outerHTML = '<div id="text-1">text has changed</div>';
+    }, 500)
+</script>
+</body>
+</html>

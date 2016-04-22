@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Page 2</title>
+</head>
+<body>
+<input id="text-1" class="text-1"/>
+<button id="button-save" onclick="localStorage.setItem('page-2-text-1', document.getElementById('text-1').value);">
+    Save
+</button>
+<script>
+    document.getElementById("text-1").value = localStorage.getItem("page-2-text-1")
+</script>
+</body>
+</html>
